@@ -23,21 +23,40 @@
     $newPassWord = '';
     
 
-    for($i=0; $i<$_GET['passwordLength']; $i++){
-        $random_int = random_int(1,2);
-        if($random_int==1){
-            $isUpperCase = random_int(0,1);
-            if($isUpperCase == 1){
-                $newPassWord .= strtoupper($lettere[random_int(0,25)]);
+    if(isset($_GET['passwordLength'])){
+
+        for($i=0; $i<$_GET['passwordLength']; $i++){
+            $random_int = random_int(1,2);
+
+            if($i==($_GET['passwordLength'] - 3)){
+
+                $newPassWord .= $caratteri[random_int(0,3)];
+
             }else{
 
-                $newPassWord .= $lettere[random_int(0,25)];
+                if($random_int==1){
+        
+                    $isUpperCase = random_int(0,1);
+        
+                    if($isUpperCase == 1){
+        
+                        $newPassWord .= strtoupper($lettere[random_int(0,24)]);
+        
+                    }else{
+        
+                        $newPassWord .= $lettere[random_int(0,24)];
+                    }
+                }else{
+                    $newPassWord .= $numeri[random_int(0,9)];
+                }
             }
-        }else{
-            $newPassWord .= $numeri[random_int(0,9)];
+
+    
         }
+    
+        echo $newPassWord;
     }
-    echo $newPassWord;
+
 
     ?>
 
