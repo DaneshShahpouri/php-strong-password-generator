@@ -1,4 +1,7 @@
 <?php 
+
+session_start();
+
 include_once __DIR__ . '/partials/function.php';
 
 ?>
@@ -15,12 +18,12 @@ include_once __DIR__ . '/partials/function.php';
 </head>
 <body>
     <h3>Crea la tua passWord</h3>
-    <form action="" method="get">
+    <form action="getPassword.php" method="get">
         <input type="number" placeholder="Lunghezza Password" name="passwordLength">
         <input type="submit">
     </form>
 
-  <?php echo $newPassWord; ?>
+  
 
 </body>
 </html>

@@ -1,9 +1,11 @@
 <?php 
+
+
   
     $lettere= ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'l', 'k', 'm', 'n', 'o', 'p', 'q', 'r','s','t','u','v','w','x','y','z'];
     $numeri = [0,1,2,3,4,5,6,7,8,9];
     $caratteri=['!', '?'];
-    $newPassWord = '';
+    $_SESSION['newPassWord'] = '';
     
 
 
@@ -16,7 +18,7 @@
 
             if($i==($_GET['passwordLength'] - 3)){
 
-                $newPassWord .= $caratteri[random_int(0,1)];
+                $_SESSION['newPassWord'] .= $caratteri[random_int(0,1)];
 
             }else{
 
@@ -26,14 +28,14 @@
         
                     if($isUpperCase == 1){
         
-                        $newPassWord .= strtoupper($lettere[random_int(0,24)]);
+                        $_SESSION['newPassWord'] .= strtoupper($lettere[random_int(0,24)]);
         
                     }else{
         
-                        $newPassWord .= $lettere[random_int(0,24)];
+                        $_SESSION['newPassWord'] .= $lettere[random_int(0,24)];
                     }
                 }else{
-                    $newPassWord .= $numeri[random_int(0,9)];
+                    $_SESSION['newPassWord'] .= $numeri[random_int(0,9)];
                 }
             }
 
